@@ -1,0 +1,6 @@
+*.sublime-project
+*.sublime-workspace
+.idea
+cmake-build-debug
+build
+lib/sdsl-lite/cmake-build-debug
