@@ -1,5 +1,5 @@
 #include <sdsl/int_vector.hpp>
-#include "iv/int_vector.hpp"
+#include "int_vector.hpp"
 
 
 extern "C" { bool FN(int_vector_id, INT_VECTOR_ID) = true; }

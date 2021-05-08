@@ -1,4 +1,4 @@
-#include "../common.hpp"
+#include "common.hpp"
 
 #ifndef SDSL_C_BIT_VECTOR_HPP
 #define SDSL_C_BIT_VECTOR_HPP

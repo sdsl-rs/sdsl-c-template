@@ -1,4 +1,4 @@
-#include "csa/csa_wt.hpp"
+#include "csa_wt.hpp"
 
 
 CSA_WT *csa_wt_create() {

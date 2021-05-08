@@ -16,12 +16,12 @@ ExternalProject_Add(sdsl_lite
 )
 
 set(SOURCE_FILES
-        src/iv/int_vector.cpp
-        src/bv/bit_vector.cpp
-        # src/bv/bit_vector_il.cpp
-        src/rank/rank_support_v5.cpp
-        src/wt/wt.cpp
-        src/wt/wt_int.cpp)
+        src/int_vector.cpp
+        src/bit_vector.cpp
+        # src/bit_vector_il.cpp
+        src/rank_support_v5.cpp
+        src/wt.cpp
+        src/wt_int.cpp)
 # file(GLOB SOURCE_FILES "src/**/*.cpp")
 
 set(INCLUDE_DIRS

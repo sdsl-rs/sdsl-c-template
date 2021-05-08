@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "wt/wt.hpp"
+#include "wt.hpp"
 
 
 TEST(WT, IntersectOverTwoRanges_CorrectNumIntersectValues) {

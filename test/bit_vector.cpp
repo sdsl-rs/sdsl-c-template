@@ -1,7 +1,7 @@
 #include <iostream>
 #include "gtest/gtest.h"
 
-#include "bv/bit_vector.hpp"
+#include "bit_vector.hpp"
 
 
 TEST(BitVector, SizeMethod_CorrectSizeReturned) {

@@ -2,7 +2,7 @@
 #include <sdsl/wt_int.hpp>
 #include <sdsl/int_vector.hpp>
 #include <sdsl/construct.hpp>
-#include "../common.hpp"
+#include "common.hpp"
 
 
 #ifndef SDSL_C_WT_HPP

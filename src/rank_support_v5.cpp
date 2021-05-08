@@ -1,5 +1,5 @@
 #include <sdsl/rank_support_v5.hpp>
-#include "rank/rank_support_v5.hpp"
+#include "rank_support_v5.hpp"
 
 
 RankSupportV5 *FN(rank_support_v5_create, RANK_SUPPORT_V5_ID)() {

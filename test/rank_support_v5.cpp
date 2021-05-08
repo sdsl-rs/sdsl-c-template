@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "rank/rank_support_v5.hpp"
+#include "rank_support_v5.hpp"
 
 
 TEST(RankSupportV5, test) {

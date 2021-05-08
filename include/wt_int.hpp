@@ -1,5 +1,5 @@
 #include <sdsl/int_vector.hpp>
-#include "../common.hpp"
+#include "common.hpp"
 
 
 #ifndef SDSL_C_WT_INT_HPP

@@ -1,7 +1,7 @@
 #include <sdsl/wt_int.hpp>
 #include <sdsl/wt_algorithm.hpp>
 #include <sdsl/construct.hpp>
-#include "wt/wt_int.hpp"
+#include "wt_int.hpp"
 
 
 extern "C" { bool FN(wt_int_id, WT_INT_ID) = true; }

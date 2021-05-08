@@ -1,8 +1,8 @@
 #include <iostream>
 #include "gtest/gtest.h"
 
-#include "bv/bit_vector.hpp"
-#include "bv/bit_vector_il.hpp"
+#include "bit_vector.hpp"
+#include "bit_vector_il.hpp"
 
 
 TEST(BitVectorIl, Blah) {

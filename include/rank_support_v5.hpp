@@ -1,4 +1,4 @@
-#include "../common.hpp"
+#include "common.hpp"
 
 #ifndef SDSL_C_RANK_SUPPORT_V5_HPP
 #define SDSL_C_RANK_SUPPORT_V5_HPP

@@ -1,5 +1,5 @@
 #include <sdsl/int_vector.hpp>
-#include "bv/bit_vector.hpp"
+#include "bit_vector.hpp"
 
 
 BitVector *FN(bit_vector_create, BIT_VECTOR_ID)(size_type size, value_type default_value) {

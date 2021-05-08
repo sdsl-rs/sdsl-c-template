@@ -1,4 +1,4 @@
-#include "wt/wt.hpp"
+#include "wt.hpp"
 
 
 WT *FN(wt_data_construct, WT_ID)(ConstructDataType *data, uint8_t num_bytes) {

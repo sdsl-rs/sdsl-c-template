@@ -1,7 +1,7 @@
 #pragma once
 
 #include <sdsl/bit_vector_il.hpp>
-#include "../common.hpp"
+#include "common.hpp"
 #include "bit_vector.hpp"
 
 

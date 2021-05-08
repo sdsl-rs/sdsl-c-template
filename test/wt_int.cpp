@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "wt/wt_int.hpp"
+#include "wt_int.hpp"
 
 
 TEST(WT_Int, Create) {
