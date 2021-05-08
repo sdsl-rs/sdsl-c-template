@@ -7,7 +7,7 @@ on:
 
 jobs:
   once:
-    name: Create single release for all builds
+    name: Create release
     runs-on: ubuntu-latest
     outputs:
       upload_url: ${{ steps.create_release.outputs.upload_url }}
@@ -21,3 +21,31 @@ jobs:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
 
+      - name: Checkout repository recursively
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+          submodules: recursive
+
+      - name: Set package metadata
+        id: meta
+        shell: bash
+        run: |
+          echo ::set-output name=NAME::sdsl-c-template
+          echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
+        
+      - name: Archive release assets
+        id: archive_assets
+        run: |
+          7z a -tzip ${{ github.workspace }}/${{ steps.meta.outputs.NAME }}-${{ steps.meta.outputs.VERSION }}.zip ${{ github.workspace }}/*
+
+      - name: Upload release archive
+        id: upload_archive
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ${{ github.workspace }}/${{ steps.meta.outputs.NAME }}-${{ steps.meta.outputs.VERSION }}.zip
+          asset_name: ${{ steps.meta.outputs.NAME }}-${{ steps.meta.outputs.VERSION }}.zip
+          asset_content_type: application/octet-stream
