@@ -2,17 +2,18 @@ cmake_minimum_required(VERSION 3.8)
 project(sdsl_c)
 set(CMAKE_CXX_STANDARD 14)
 
-
-set(SDSL_LITE_BUILD ${PROJECT_SOURCE_DIR}/lib/sdsl-lite/cmake-build-debug/)
-set(SDSL_LITE_LIB ${SDSL_LITE_BUILD}/lib/libsdsl.a)
-
+# Build sdsl-lite
+set(SDSL_LITE_DIR ${PROJECT_SOURCE_DIR}/lib/sdsl-lite)
+set(SDSL_LITE_BUILD_DIR ${SDSL_LITE_DIR}/cmake-build-debug)
+# TODO: Will probably need this: https://stackoverflow.com/questions/6351609/cmake-linking-to-library-downloaded-from-externalproject-add
+set(SDSL_LITE_LIB ${SDSL_LITE_BUILD_DIR}/lib/libsdsl.a)
 include(${CMAKE_ROOT}/Modules/ExternalProject.cmake)
 ExternalProject_Add(sdsl_lite
-        SOURCE_DIR ${PROJECT_SOURCE_DIR}/lib/sdsl-lite
-        STEP_TARGETS build
-        BINARY_DIR ${PROJECT_SOURCE_DIR}/lib/sdsl-lite/cmake-build-debug
-        INSTALL_COMMAND cmake -E echo "Skipping install step.")
-
+    SOURCE_DIR ${SDSL_LITE_DIR}
+    STEP_TARGETS build
+    BINARY_DIR ${SDSL_LITE_BUILD_DIR}
+    INSTALL_COMMAND cmake -E echo "Skipping install step."
+)
 
 set(SOURCE_FILES
         src/iv/int_vector.cpp
@@ -21,32 +22,38 @@ set(SOURCE_FILES
         src/rank/rank_support_v5.cpp
         src/wt/wt.cpp
         src/wt/wt_int.cpp)
+# file(GLOB SOURCE_FILES "src/**/*.cpp")
+
 set(INCLUDE_DIRS
         ${PROJECT_SOURCE_DIR}/include
-        ${SDSL_LITE_BUILD}/include)
+        ${SDSL_LITE_BUILD_DIR}/include
+)
 
-add_library(sdsl_c SHARED
-        ${SOURCE_FILES})
-add_dependencies(sdsl_c sdsl_lite)
-target_link_libraries(sdsl_c
+# Shared library
+add_library(${PROJECT_NAME} SHARED ${SOURCE_FILES})
+add_dependencies(${PROJECT_NAME} sdsl_lite)
+target_link_libraries(${PROJECT_NAME}
     pthread
-    ${SDSL_LITE_LIB})
-target_include_directories(sdsl_c PUBLIC
-        ${INCLUDE_DIRS})
-set_target_properties(sdsl_c PROPERTIES
-        COMPILE_FLAGS "-shared -fPIC")
+    ${SDSL_LITE_LIB}
+)
+target_include_directories(${PROJECT_NAME} PUBLIC ${INCLUDE_DIRS})
+set_target_properties(${PROJECT_NAME} PROPERTIES
+        COMPILE_FLAGS "-shared -fPIC"
+)
 
-add_library(static_sdsl_c STATIC
-        ${SOURCE_FILES})
-add_dependencies(static_sdsl_c sdsl_lite)
-target_link_libraries(static_sdsl_c
+# Static library
+add_library(static_${PROJECT_NAME} STATIC ${SOURCE_FILES})
+add_dependencies(static_${PROJECT_NAME} sdsl_lite)
+target_link_libraries(static_${PROJECT_NAME}
         pthread
-        ${SDSL_LITE_LIB})
-target_include_directories(static_sdsl_c PUBLIC
-        ${INCLUDE_DIRS})
-set_target_properties(static_sdsl_c PROPERTIES
-        OUTPUT_NAME sdsl_c)
+        ${SDSL_LITE_LIB}
+)
+target_include_directories(static_${PROJECT_NAME} PUBLIC ${INCLUDE_DIRS})
+set_target_properties(static_${PROJECT_NAME} PROPERTIES
+        OUTPUT_NAME ${PROJECT_NAME}
+)
 
+# Tests
 enable_testing()
 add_subdirectory(test)
 add_test(run_tests run_tests)

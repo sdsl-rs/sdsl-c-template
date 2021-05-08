@@ -7,3 +7,5 @@
 ## Dependencies
 
 libdivsufsort
+
+libgtest-dev (for tests)
