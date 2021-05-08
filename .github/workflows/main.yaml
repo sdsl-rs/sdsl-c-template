@@ -37,7 +37,7 @@ jobs:
       - name: Archive release assets
         id: archive_assets
         run: |
-          7z a -tzip ${{ github.workspace }}/${{ steps.meta.outputs.NAME }}-${{ steps.meta.outputs.VERSION }}.zip ${{ github.workspace }}/*
+          7z a -tzip ${{ github.workspace }}/${{ steps.meta.outputs.NAME }}-${{ steps.meta.outputs.VERSION }}.zip ${{ github.workspace }}
 
       - name: Upload release archive
         id: upload_archive
