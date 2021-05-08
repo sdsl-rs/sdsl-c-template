@@ -2,7 +2,7 @@
 #include <sdsl/int_vector.hpp>
 #include "gtest/gtest.h"
 
-#include "int_vector.hpp"
+#include "iv/int_vector.hpp"
 
 
 TEST(IntVector, Copy_NewCopyOfVector) {

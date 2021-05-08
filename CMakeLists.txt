@@ -15,7 +15,9 @@ ExternalProject_Add(sdsl_lite
 
 
 set(SOURCE_FILES
+        src/iv/int_vector.cpp
         src/bv/bit_vector.cpp
+        # src/bv/bit_vector_il.cpp
         src/rank/rank_support_v5.cpp
         src/wt/wt.cpp
         src/wt/wt_int.cpp)
