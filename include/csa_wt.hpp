@@ -1,7 +1,6 @@
 #include <sdsl/suffix_arrays.hpp>
 #include <sdsl/csa_wt.hpp>
 
-
 #ifndef SDSL_C_CSA_WT_HPP
 #define SDSL_C_CSA_WT_HPP
 
@@ -10,16 +9,14 @@ using WavletTree = sdsl::wt_int<sdsl::bv, sdsl::rank_support_v5<>>;
 using FM_Index = sdsl::csa_wt<WavletTree, 2, 16777216>;
  */
 
-
 #define CSA_WT_TEMPLATE wt_huff<>, 32, 32, sa_order_sa_sampling<>, isa_sampling<>, succinct_byte_alphabet<>
 
 extern "C"
 {
-struct CSA_WT;
-typedef struct CSA_WT CSA_WT;
-typedef bool csa_wt_value_type;
-typedef uint64_t csa_wt_size_type;
-
+        struct CSA_WT;
+        typedef struct CSA_WT CSA_WT;
+        typedef bool csa_wt_value_type;
+        typedef uint64_t csa_wt_size_type;
 
 csa_wt ()
 Default constructor. More...
@@ -54,8 +51,6 @@ Load from a stream. More...
 
 static size_type 	max_size ()
 Returns the largest size that csa_wt can ever have. More...
-
 }
-
 
 #endif //SDSL_C_CSA_WT_HPP
