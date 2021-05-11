@@ -104,39 +104,3 @@ bool FN(int_vector_load_from_file, INT_VECTOR_ID)(IntVector *v, const char *cons
     auto &vec = *reinterpret_cast<sdsl::int_vector<INT_VECTOR_TEMPLATE> *>(v);
     return sdsl::load_from_file(vec, file);
 }
-
-void FN(set_to_value, INT_VECTOR_ID)(IntVector *v, uint64_t k)
-{
-    auto &vec = *reinterpret_cast<sdsl::int_vector<INT_VECTOR_TEMPLATE> *>(v);
-    sdsl::util::set_to_value(vec, k);
-}
-
-void FN(set_to_id, INT_VECTOR_ID)(IntVector *v)
-{
-    auto &vec = *reinterpret_cast<sdsl::int_vector<INT_VECTOR_TEMPLATE> *>(v);
-    sdsl::util::set_to_id(vec);
-}
-
-void FN(set_random_bits, INT_VECTOR_ID)(IntVector *v)
-{
-    auto &vec = *reinterpret_cast<sdsl::int_vector<INT_VECTOR_TEMPLATE> *>(v);
-    sdsl::util::set_random_bits(vec);
-}
-
-void FN(mod, INT_VECTOR_ID)(IntVector *v, int_vector_size_type m)
-{
-    auto &vec = *reinterpret_cast<sdsl::int_vector<INT_VECTOR_TEMPLATE> *>(v);
-    sdsl::util::mod(vec, m);
-}
-
-void FN(bit_compress, INT_VECTOR_ID)(IntVector *v)
-{
-    auto &vec = *reinterpret_cast<sdsl::int_vector<INT_VECTOR_TEMPLATE> *>(v);
-    sdsl::util::bit_compress(vec);
-}
-
-void FN(expand_width, INT_VECTOR_ID)(IntVector *v, uint8_t new_width)
-{
-    auto &vec = *reinterpret_cast<sdsl::int_vector<INT_VECTOR_TEMPLATE> *>(v);
-    sdsl::util::expand_width(vec, new_width);
-}

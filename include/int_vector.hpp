@@ -31,13 +31,6 @@ extern "C"
                                                      const char *const file,
                                                      bool write_fixed_as_variable);
     bool FN(int_vector_load_from_file, INT_VECTOR_ID)(IntVector *v, const char *const file);
-
-    void FN(set_to_value, INT_VECTOR_ID)(IntVector *v, uint64_t k);
-    void FN(set_to_id, INT_VECTOR_ID)(IntVector *v);
-    void FN(set_random_bits, INT_VECTOR_ID)(IntVector *v);
-    void FN(mod, INT_VECTOR_ID)(IntVector *v, int_vector_size_type m);
-    void FN(bit_compress, INT_VECTOR_ID)(IntVector *v);
-    void FN(expand_width, INT_VECTOR_ID)(IntVector *v, uint8_t new_width);
 }
 
 #endif //SDSL_C_INT_VECTOR_H
