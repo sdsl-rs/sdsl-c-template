@@ -27,10 +27,6 @@ extern "C"
     const uint64_t *FN(int_vector_data, INT_VECTOR_ID)(IntVector *v);
     uint8_t FN(int_vector_width, INT_VECTOR_ID)(IntVector *v);
     void FN(int_vector_set_width, INT_VECTOR_ID)(IntVector *v, uint8_t new_width);
-    bool FN(int_vector_store_to_file, INT_VECTOR_ID)(const IntVector *const v,
-                                                     const char *const file,
-                                                     bool write_fixed_as_variable);
-    bool FN(int_vector_load_from_file, INT_VECTOR_ID)(IntVector *v, const char *const file);
 }
 
 #endif //SDSL_C_INT_VECTOR_H

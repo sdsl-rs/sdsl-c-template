@@ -1,4 +1,3 @@
-#include <sdsl/util.hpp>
 #include "util.hpp"
 
 void FN(set_to_value, UTIL_ID)(Structure *v, uint64_t k)

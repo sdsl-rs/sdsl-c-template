@@ -90,17 +90,3 @@ void FN(int_vector_set_width, INT_VECTOR_ID)(IntVector *v, uint8_t new_width)
     auto &vec = *reinterpret_cast<sdsl::int_vector<INT_VECTOR_TEMPLATE> *>(v);
     vec.width(new_width);
 }
-
-bool FN(int_vector_store_to_file, INT_VECTOR_ID)(const IntVector *const v,
-                                                 const char *const file,
-                                                 bool write_fixed_as_variable)
-{
-    const auto &vec = *reinterpret_cast<const sdsl::int_vector<INT_VECTOR_TEMPLATE> *>(v);
-    return sdsl::store_to_file(vec, file, write_fixed_as_variable);
-}
-
-bool FN(int_vector_load_from_file, INT_VECTOR_ID)(IntVector *v, const char *const file)
-{
-    auto &vec = *reinterpret_cast<sdsl::int_vector<INT_VECTOR_TEMPLATE> *>(v);
-    return sdsl::load_from_file(vec, file);
-}

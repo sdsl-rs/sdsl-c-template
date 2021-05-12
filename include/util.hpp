@@ -1,5 +1,7 @@
-#include "common.hpp"
+#include <sdsl/util.hpp>
 #include <sdsl/int_vector.hpp>
+
+#include "common.hpp"
 
 #ifndef SDSL_C_UTIL_H
 #define SDSL_C_UTIL_H

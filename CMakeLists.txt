@@ -16,6 +16,7 @@ ExternalProject_Add(sdsl_lite
 )
 
 set(SOURCE_FILES
+        src/io.cpp
         src/util.cpp
         src/int_vector.cpp
         src/bit_vector.cpp
