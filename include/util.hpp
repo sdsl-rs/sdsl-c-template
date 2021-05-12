@@ -11,8 +11,7 @@
 
 extern "C"
 {
-    struct Structure;
-    typedef struct Structure Structure;
+    typedef void Structure;
     typedef uint64_t size_type;
 
     void FN(set_to_value, UTIL_ID)(Structure *v, uint64_t k);

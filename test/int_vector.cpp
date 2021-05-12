@@ -1,7 +1,8 @@
 #include <iostream>
-#include <sdsl/int_vector.hpp>
 #include "gtest/gtest.h"
 
+#include "util.hpp"
+#include "io.hpp"
 #include "int_vector.hpp"
 
 
@@ -149,10 +150,10 @@ TEST(IntVector, StoreToFile_LoadFromFile) {
     IntVector *output_v = FN(int_vector_create, INT_VECTOR_ID)(10, 0, 64);
     FN(int_vector_set_element, INT_VECTOR_ID)(output_v, 3, 42);
     bool write_fixed_as_variable = true;
-    FN(int_vector_store_to_file, INT_VECTOR_ID)(output_v, fname, write_fixed_as_variable);
+    FN(store_to_file, INT_VECTOR_ID)(output_v, fname, write_fixed_as_variable);
 
     IntVector *readin_v = FN(int_vector_create, INT_VECTOR_ID)(10, 0, 64);
-    FN(int_vector_load_from_file, INT_VECTOR_ID)(readin_v, fname);
+    FN(load_from_file, INT_VECTOR_ID)(readin_v, fname);
     auto result = FN(int_vector_get_element, INT_VECTOR_ID)(readin_v, 3);
     auto expected = 42;
     ASSERT_EQ(result, expected);

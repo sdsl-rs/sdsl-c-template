@@ -1,7 +1,7 @@
 include(GoogleTest)
 find_package(GTest REQUIRED)
 
-file(GLOB SOURCE_FILES "./**/*.cpp")
+file(GLOB SOURCE_FILES "*.cpp")
 add_executable(run_tests test_main.cpp ${SOURCE_FILES})
 target_link_libraries(run_tests
         static_sdsl_c

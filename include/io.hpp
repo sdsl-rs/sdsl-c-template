@@ -10,8 +10,7 @@
 
 extern "C"
 {
-    struct Structure;
-    typedef struct Structure Structure;
+    typedef void Structure;
 
     bool FN(store_to_file, IO_ID)(const Structure *const v,
                                   const char *const file,
