@@ -1,7 +1,7 @@
 #include <sdsl/int_vector.hpp>
 #include "bit_vector.hpp"
 
-BitVector *FN(bit_vector_create, BIT_VECTOR_ID)(size_type size, value_type default_value)
+BitVector *FN(bit_vector_create, BIT_VECTOR_ID)(size_type size, bit_vector_value_type default_value)
 {
     uint8_t t_width = 1;
     return reinterpret_cast<BitVector *>(
@@ -20,13 +20,13 @@ size_type FN(bit_vector_size, BIT_VECTOR_ID)(BitVector *v)
     return vec.size();
 }
 
-value_type FN(bit_vector_get_bit, BIT_VECTOR_ID)(BitVector *v, const size_type index)
+bit_vector_value_type FN(bit_vector_get_bit, BIT_VECTOR_ID)(BitVector *v, const size_type index)
 {
     const auto &vec = *reinterpret_cast<sdsl::bit_vector *>(v);
     return vec[index];
 }
 
-void FN(bit_vector_set_bit, BIT_VECTOR_ID)(BitVector *v, const size_type index, const value_type value)
+void FN(bit_vector_set_bit, BIT_VECTOR_ID)(BitVector *v, const size_type index, const bit_vector_value_type value)
 {
     auto &vec = *reinterpret_cast<sdsl::bit_vector *>(v);
     vec[index] = value;

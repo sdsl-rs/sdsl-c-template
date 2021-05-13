@@ -21,6 +21,7 @@ set(SOURCE_FILES
         src/int_vector.cpp
         src/bit_vector.cpp
         # src/bit_vector_il.cpp
+        src/rrr_vector.cpp
         src/rank_support_v5.cpp
         src/wt.cpp
         src/wt_int.cpp)

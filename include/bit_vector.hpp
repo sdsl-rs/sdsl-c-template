@@ -8,16 +8,15 @@
 
 extern "C"
 {
-    struct BitVector;
-    typedef struct BitVector BitVector;
-    typedef uint64_t value_type;
+    typedef void BitVector;
+    typedef uint64_t bit_vector_value_type;
     typedef uint64_t size_type;
 
-    BitVector *FN(bit_vector_create, BIT_VECTOR_ID)(size_type size, value_type default_value);
+    BitVector *FN(bit_vector_create, BIT_VECTOR_ID)(size_type size, bit_vector_value_type default_value);
     void FN(bit_vector_destroy, BIT_VECTOR_ID)(BitVector *v);
     size_type FN(bit_vector_size, BIT_VECTOR_ID)(BitVector *v);
-    value_type FN(bit_vector_get_bit, BIT_VECTOR_ID)(BitVector *v, const size_type index);
-    void FN(bit_vector_set_bit, BIT_VECTOR_ID)(BitVector *v, const size_type index, const value_type value);
+    bit_vector_value_type FN(bit_vector_get_bit, BIT_VECTOR_ID)(BitVector *v, const size_type index);
+    void FN(bit_vector_set_bit, BIT_VECTOR_ID)(BitVector *v, const size_type index, const bit_vector_value_type value);
     bool FN(bit_vector_empty, BIT_VECTOR_ID)(BitVector *v);
     void FN(bit_vector_resize, BIT_VECTOR_ID)(BitVector *v, const size_type size);
     void FN(bit_vector_swap, BIT_VECTOR_ID)(BitVector *v_primary, BitVector *v_secondary);
