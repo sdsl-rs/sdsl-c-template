@@ -3,8 +3,7 @@
 #ifndef SDSL_C_BIT_VECTOR_HPP
 #define SDSL_C_BIT_VECTOR_HPP
 
-#define BIT_VECTOR_ID _tmp_id
-#define BIT_VECTOR_TEMPLATE
+#define BIT_VECTOR_ID _id
 
 extern "C"
 {
