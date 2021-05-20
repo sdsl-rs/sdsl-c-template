@@ -15,6 +15,7 @@ extern "C"
     typedef uint64_t rrr_vector_size_type;
 
     RrrVector *FN(rrr_vector_create, RRR_VECTOR_ID)(BitVector *v);
+    RrrVector *FN(rrr_vector_default, RRR_VECTOR_ID)();
     void FN(rrr_vector_destroy, RRR_VECTOR_ID)(RrrVector *v);
 
     RrrVector *FN(rrr_vector_copy, RRR_VECTOR_ID)(RrrVector *v);

@@ -6,6 +6,11 @@ RrrVector *FN(rrr_vector_create, RRR_VECTOR_ID)(BitVector *v)
     return reinterpret_cast<RrrVector *>(new sdsl::rrr_vector<RRR_VECTOR_TEMPLATE>(bv));
 }
 
+RrrVector *FN(rrr_vector_default, RRR_VECTOR_ID)()
+{
+    return reinterpret_cast<RrrVector *>(new sdsl::rrr_vector<RRR_VECTOR_TEMPLATE>());
+}
+
 void FN(rrr_vector_destroy, RRR_VECTOR_ID)(RrrVector *v)
 {
     auto &vec = *reinterpret_cast<sdsl::rrr_vector<RRR_VECTOR_TEMPLATE> *>(v);
