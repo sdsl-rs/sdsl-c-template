@@ -14,19 +14,26 @@ void FN(bit_vector_destroy, BIT_VECTOR_ID)(BitVector *v)
     delete &vec;
 }
 
+BitVector *FN(bit_vector_copy, BIT_VECTOR_ID)(BitVector *v)
+{
+    auto &vec = *reinterpret_cast<sdsl::bit_vector *>(v);
+    return reinterpret_cast<BitVector *>(
+        new sdsl::bit_vector(vec));
+}
+
 size_type FN(bit_vector_size, BIT_VECTOR_ID)(BitVector *v)
 {
     const auto &vec = *reinterpret_cast<sdsl::bit_vector *>(v);
     return vec.size();
 }
 
-bit_vector_value_type FN(bit_vector_get_bit, BIT_VECTOR_ID)(BitVector *v, const size_type index)
+bit_vector_value_type FN(bit_vector_get_element, BIT_VECTOR_ID)(BitVector *v, const size_type index)
 {
     const auto &vec = *reinterpret_cast<sdsl::bit_vector *>(v);
     return vec[index];
 }
 
-void FN(bit_vector_set_bit, BIT_VECTOR_ID)(BitVector *v, const size_type index, const bit_vector_value_type value)
+void FN(bit_vector_set_element, BIT_VECTOR_ID)(BitVector *v, const size_type index, const bit_vector_value_type value)
 {
     auto &vec = *reinterpret_cast<sdsl::bit_vector *>(v);
     vec[index] = value;
@@ -44,25 +51,6 @@ void FN(bit_vector_resize, BIT_VECTOR_ID)(BitVector *v, const size_type size)
     vec.resize(size);
 }
 
-void FN(bit_vector_swap, BIT_VECTOR_ID)(BitVector *v_primary, BitVector *v_secondary)
-{
-    auto &vec_primary = *reinterpret_cast<sdsl::bit_vector *>(v_primary);
-    auto &vec_secondary = *reinterpret_cast<sdsl::bit_vector *>(v_secondary);
-    vec_primary.swap(vec_secondary);
-}
-
-void FN(bit_vector_bit_resize, BIT_VECTOR_ID)(BitVector *v, const size_type size)
-{
-    auto &vec = *reinterpret_cast<sdsl::bit_vector *>(v);
-    vec.bit_resize(size);
-}
-
-size_type FN(bit_vector_bit_size, BIT_VECTOR_ID)(BitVector *v)
-{
-    const auto &vec = *reinterpret_cast<sdsl::bit_vector *>(v);
-    return vec.bit_size();
-}
-
 size_type FN(bit_vector_capacity, BIT_VECTOR_ID)(BitVector *v)
 {
     const auto &vec = *reinterpret_cast<sdsl::bit_vector *>(v);
@@ -73,18 +61,4 @@ const uint64_t *FN(bit_vector_data, BIT_VECTOR_ID)(BitVector *v)
 {
     const auto &vec = *reinterpret_cast<const sdsl::bit_vector *>(v);
     return vec.data();
-}
-
-bool FN(bit_vector_store_to_file, BIT_VECTOR_ID)(const BitVector *const v,
-                                                 const char *const file,
-                                                 bool write_fixed_as_variable)
-{
-    const auto &vec = *reinterpret_cast<const sdsl::bit_vector *>(v);
-    return sdsl::store_to_file(vec, file, write_fixed_as_variable);
-}
-
-bool FN(bit_vector_load_from_file, BIT_VECTOR_ID)(BitVector *v, const char *const file)
-{
-    auto &vec = *reinterpret_cast<sdsl::bit_vector *>(v);
-    return sdsl::load_from_file(vec, file);
 }
