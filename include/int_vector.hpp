@@ -31,7 +31,7 @@ extern "C"
     void FN(int_vector_set_width, INT_VECTOR_ID)(IntVector *v, uint8_t new_width);
 
     int_vector_value_type FN(int_vector_get_int, INT_VECTOR_ID)(IntVector *v, const int_vector_size_type index, const uint8_t len);
-    void FN(int_vector_set_int, INT_VECTOR_ID)(IntVector *v, const int_vector_size_type index, const int_vector_value_type value);
+    void FN(int_vector_set_int, INT_VECTOR_ID)(IntVector *v, const int_vector_size_type index, const int_vector_value_type value, const uint8_t len);
 
     uint64_t FN(int_vector_get_element, INT_VECTOR_ID)(IntVector *v, const int_vector_size_type index);
     void FN(int_vector_set_element, INT_VECTOR_ID)(IntVector *v, const int_vector_size_type index, const int_vector_value_type value);

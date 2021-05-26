@@ -25,7 +25,7 @@ extern "C"
     const uint64_t *FN(bit_vector_data, BIT_VECTOR_ID)(BitVector *v);
 
     bit_vector_value_type FN(bit_vector_get_int, BIT_VECTOR_ID)(BitVector *v, const size_type index, const uint8_t len);
-    void FN(bit_vector_set_int, BIT_VECTOR_ID)(BitVector *v, const size_type index, const bit_vector_value_type value);
+    void FN(bit_vector_set_int, BIT_VECTOR_ID)(BitVector *v, const size_type index, const bit_vector_value_type value, const uint8_t len);
 
     bit_vector_value_type FN(bit_vector_get_element, BIT_VECTOR_ID)(BitVector *v, const size_type index);
     void FN(bit_vector_set_element, BIT_VECTOR_ID)(BitVector *v, const size_type index, const bit_vector_value_type value);
