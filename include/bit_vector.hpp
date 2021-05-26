@@ -31,6 +31,8 @@ extern "C"
     void FN(bit_vector_set_element, BIT_VECTOR_ID)(BitVector *v, const size_type index, const bit_vector_value_type value);
 
     void FN(bit_vector_flip, BIT_VECTOR_ID)(BitVector *v);
+
+    bool FN(bit_vector_equality_operator, BIT_VECTOR_ID)(BitVector *v, BitVector *other);
 }
 
 #endif //SDSL_C_BIT_VECTOR_HPP

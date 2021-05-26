@@ -87,6 +87,13 @@ void FN(bit_vector_set_element, BIT_VECTOR_ID)(BitVector *v, const size_type ind
     vec[index] = value;
 }
 
+bool FN(bit_vector_equality_operator, BIT_VECTOR_ID)(BitVector *v, BitVector *other)
+{
+    const auto &vec = *reinterpret_cast<sdsl::bit_vector *>(v);
+    const auto &other_vec = *reinterpret_cast<sdsl::bit_vector *>(other);
+    return vec == other_vec;
+}
+
 void FN(bit_vector_flip, BIT_VECTOR_ID)(BitVector *v)
 {
     auto &vec = *reinterpret_cast<sdsl::bit_vector *>(v);
