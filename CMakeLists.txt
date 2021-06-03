@@ -22,9 +22,10 @@ set(SOURCE_FILES
         src/bit_vector.cpp
         # src/bit_vector_il.cpp
         src/rrr_vector.cpp
-        src/rank_support_v5.cpp
+        src/rank_support_v.cpp
         src/wt.cpp
-        src/wt_int.cpp)
+        src/wt_int.cpp
+)
 # file(GLOB SOURCE_FILES "src/**/*.cpp")
 
 set(INCLUDE_DIRS

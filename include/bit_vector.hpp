@@ -1,4 +1,5 @@
 #include "common.hpp"
+#include <sdsl/int_vector.hpp>
 
 #ifndef SDSL_C_BIT_VECTOR_HPP
 #define SDSL_C_BIT_VECTOR_HPP
