@@ -23,6 +23,7 @@ set(SOURCE_FILES
         # src/bit_vector_il.cpp
         src/rrr_vector.cpp
         src/rank_support_v.cpp
+        src/select_support_mcl.cpp
         src/wt.cpp
         src/wt_int.cpp
 )

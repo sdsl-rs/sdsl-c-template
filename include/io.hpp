@@ -2,6 +2,7 @@
 #include <sdsl/int_vector.hpp>
 #include <sdsl/rrr_vector.hpp>
 #include <sdsl/rank_support_v.hpp>
+#include <sdsl/select_support_mcl.hpp>
 #include "common.hpp"
 
 #ifndef SDSL_C_IO_H
