@@ -1,0 +1,6 @@
+#ifndef SDSL_C_BYTE_TREE_HPP
+#define SDSL_C_BYTE_TREE_HPP
+
+#define LEX_ORDERED false
+
+#endif //SDSL_C_BYTE_TREE_HPP
