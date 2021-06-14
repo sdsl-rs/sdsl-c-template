@@ -21,7 +21,7 @@ extern "C"
     typedef uint64_t wt_huff_value_type;
     typedef uint64_t wt_huff_size_type;
 
-    WtHuff *FN(wt_huff_crate, WT_HUFF_ID)();
+    WtHuff *FN(wt_huff_create, WT_HUFF_ID)();
     WtHuff *FN(wt_huff_from_file, WT_HUFF_ID)(const char *const file, uint8_t num_bytes);
     WtHuff *FN(wt_huff_from_string, WT_HUFF_ID)(const char *const data);
     WtHuff *FN(wt_huff_from_int_vector, WT_HUFF_ID)(IntVector *iv_ptr);
