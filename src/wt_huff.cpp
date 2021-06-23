@@ -1,4 +1,6 @@
 #include "wt_huff.hpp"
+#include <iterator>
+#include <vector>
 
 WtHuff *FN(wt_huff_create, WT_HUFF_ID)()
 {
@@ -97,6 +99,34 @@ wt_huff_size_type FN(wt_huff_select, WT_HUFF_ID)(WtHuff *x, wt_huff_size_type in
 {
     auto &wt = *reinterpret_cast<sdsl::wt_huff<WT_HUFF_TEMPLATE> *>(x);
     return wt.select(index, symbol);
+}
+
+ResultIntervalSymbols FN(wt_huff_interval_symbols, WT_HUFF_ID)(WtHuff *x, wt_huff_size_type start_index,
+                                                               wt_huff_size_type end_index,
+                                                               wt_huff_size_type alphabet)
+{
+    auto &wt = *reinterpret_cast<sdsl::wt_huff<WT_HUFF_TEMPLATE> *>(x);
+    std::vector<wt_huff_value_type> cs_vec(alphabet);
+    std::vector<wt_huff_size_type> rank_c_i_vec(alphabet);
+    std::vector<wt_huff_size_type> rank_c_j_vec(alphabet);
+    wt_huff_size_type interval_alphabet_size;
+    wt.interval_symbols(start_index, end_index, interval_alphabet_size, cs_vec, rank_c_i_vec, rank_c_j_vec);
+
+    wt_huff_value_type *cs = (wt_huff_value_type *)malloc(alphabet * sizeof(wt_huff_value_type));
+    std::copy(cs_vec.begin(), cs_vec.end(), cs);
+
+    wt_huff_size_type *rank_c_i = (wt_huff_size_type *)malloc(alphabet * sizeof(wt_huff_size_type));
+    std::copy(rank_c_i_vec.begin(), rank_c_i_vec.end(), rank_c_i);
+
+    wt_huff_size_type *rank_c_j = (wt_huff_size_type *)malloc(alphabet * sizeof(wt_huff_size_type));
+    std::copy(rank_c_j_vec.begin(), rank_c_j_vec.end(), rank_c_j);
+
+    return ResultIntervalSymbols{
+        interval_alphabet_size,
+        alphabet,
+        cs,
+        rank_c_i,
+        rank_c_j};
 }
 
 ResultLexCount FN(wt_huff_lex_count, WT_HUFF_ID)(WtHuff *x, wt_huff_size_type start_index, wt_huff_size_type end_index,

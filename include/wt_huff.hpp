@@ -18,7 +18,7 @@ extern "C"
 {
     struct WtHuff;
     typedef struct WtHuff WtHuff;
-    typedef int64_t wt_huff_value_type;
+    typedef uint8_t wt_huff_value_type;
     typedef uint64_t wt_huff_size_type;
 
     WtHuff *FN(wt_huff_create, WT_HUFF_ID)();
@@ -43,13 +43,19 @@ extern "C"
 
     wt_huff_size_type FN(wt_huff_select, WT_HUFF_ID)(WtHuff *x, wt_huff_size_type index, wt_huff_value_type symbol);
 
-    void FN(wt_huff_interval_symbols, WT_HUFF_ID)(
+    struct ResultIntervalSymbols
+    {
+        wt_huff_size_type interval_alphabet_size;
+
+        wt_huff_size_type length;
+        wt_huff_value_type *cs;
+        wt_huff_size_type *rank_c_i;
+        wt_huff_size_type *rank_c_j;
+    };
+    ResultIntervalSymbols FN(wt_huff_interval_symbols, WT_HUFF_ID)(
         WtHuff *x,
         wt_huff_size_type start_index,
-        wt_huff_size_type end_index,
-        wt_huff_size_type *interval_alphabet_size,
-        wt_huff_value_type *rank_c_i,
-        wt_huff_value_type *rank_c_j);
+        wt_huff_size_type end_index);
 
     struct ResultLexCount
     {
