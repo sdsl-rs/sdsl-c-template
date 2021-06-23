@@ -18,7 +18,7 @@ extern "C"
 {
     struct WtHuff;
     typedef struct WtHuff WtHuff;
-    typedef uint64_t wt_huff_value_type;
+    typedef int64_t wt_huff_value_type;
     typedef uint64_t wt_huff_size_type;
 
     WtHuff *FN(wt_huff_create, WT_HUFF_ID)();
