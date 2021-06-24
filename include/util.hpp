@@ -1,5 +1,5 @@
 #include <sdsl/util.hpp>
-#include <sdsl/int_vector.hpp>
+#include <sdsl/bit_vectors.hpp>
 
 #include "common.hpp"
 
