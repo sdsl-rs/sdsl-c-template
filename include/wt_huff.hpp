@@ -1,6 +1,4 @@
 #include "common.hpp"
-#include "bit_vector.hpp"
-#include "int_vector.hpp"
 #include "byte_tree.hpp"
 
 #include <sdsl/construct.hpp>
@@ -18,6 +16,8 @@ extern "C"
 {
     struct WtHuff;
     typedef struct WtHuff WtHuff;
+    typedef void IntVector;
+    typedef void BitVector;
     typedef uint8_t wt_huff_value_type;
     typedef uint64_t wt_huff_size_type;
 
