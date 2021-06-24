@@ -18,7 +18,7 @@ extern "C"
     typedef struct WtHuff WtHuff;
     typedef void IntVector;
     typedef void BitVector;
-    typedef uint8_t wt_huff_value_type;
+    typedef TREE_STRATEGY_VALUE_TYPE wt_huff_value_type;
     typedef uint64_t wt_huff_size_type;
 
     WtHuff *FN(wt_huff_create, WT_HUFF_ID)();
