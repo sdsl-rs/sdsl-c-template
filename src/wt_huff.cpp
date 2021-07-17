@@ -101,7 +101,8 @@ wt_huff_size_type FN(wt_huff_select, WT_HUFF_ID)(WtHuff *x, wt_huff_size_type in
     return wt.select(index, symbol);
 }
 
-ResultIntervalSymbols FN(wt_huff_interval_symbols, WT_HUFF_ID)(WtHuff *x, wt_huff_size_type start_index,
+ResultIntervalSymbols FN(wt_huff_interval_symbols, WT_HUFF_ID)(WtHuff *x,
+                                                               wt_huff_size_type start_index,
                                                                wt_huff_size_type end_index,
                                                                wt_huff_size_type alphabet)
 {
