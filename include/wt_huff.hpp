@@ -92,6 +92,8 @@ extern "C"
         wt_huff_value_type symbol;
     };
     ResultSymbolLte FN(wt_huff_symbol_lte, WT_HUFF_ID)(WtHuff *x, wt_huff_value_type symbol);
+
+    wt_huff_size_type FN(wt_huff_alphabet_size, WT_HUFF_ID)(WtHuff *x);
 }
 
 #endif //SDSL_C_WT_HUFF_HPP

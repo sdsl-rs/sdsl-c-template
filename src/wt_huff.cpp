@@ -187,3 +187,8 @@ ResultSymbolLte FN(wt_huff_symbol_lte, WT_HUFF_ID)(WtHuff *x, wt_huff_value_type
              results.symbol) = wt.symbol_lte(symbol);
     return results;
 }
+
+wt_huff_size_type FN(wt_huff_alphabet_size, WT_HUFF_ID)(WtHuff *x) {
+    const auto &wt = *reinterpret_cast<sdsl::wt_huff<WT_HUFF_TEMPLATE> *>(x);
+    return wt.sigma;
+}
