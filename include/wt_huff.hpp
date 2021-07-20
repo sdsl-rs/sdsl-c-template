@@ -55,8 +55,7 @@ extern "C"
     ResultIntervalSymbols FN(wt_huff_interval_symbols, WT_HUFF_ID)(
         WtHuff *x,
         wt_huff_size_type start_index,
-        wt_huff_size_type end_index,
-        wt_huff_size_type alphabet);
+        wt_huff_size_type end_index);
 
     struct ResultLexCount
     {

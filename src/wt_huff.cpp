@@ -103,10 +103,10 @@ wt_huff_size_type FN(wt_huff_select, WT_HUFF_ID)(WtHuff *x, wt_huff_size_type in
 
 ResultIntervalSymbols FN(wt_huff_interval_symbols, WT_HUFF_ID)(WtHuff *x,
                                                                wt_huff_size_type start_index,
-                                                               wt_huff_size_type end_index,
-                                                               wt_huff_size_type alphabet)
+                                                               wt_huff_size_type end_index)
 {
     auto &wt = *reinterpret_cast<sdsl::wt_huff<WT_HUFF_TEMPLATE> *>(x);
+    auto alphabet = wt.sigma;
     std::vector<wt_huff_value_type> cs_vec(alphabet);
     std::vector<wt_huff_size_type> rank_c_i_vec(alphabet);
     std::vector<wt_huff_size_type> rank_c_j_vec(alphabet);
