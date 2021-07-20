@@ -139,19 +139,18 @@ void FN(wt_huff_free_result_interval_symbols, WT_HUFF_ID)(wt_huff_value_type *cs
     free(rank_c_j);
 }
 
-ResultLexCount FN(wt_huff_lex_count, WT_HUFF_ID)(WtHuff *x, wt_huff_size_type start_index, wt_huff_size_type end_index,
+ResultLexCount FN(wt_huff_lex_count, WT_HUFF_ID)(WtHuff *x,
+                                                 wt_huff_size_type start_index,
+                                                 wt_huff_size_type end_index,
                                                  wt_huff_value_type symbol)
 {
     const auto &wt = *reinterpret_cast<sdsl::wt_huff<WT_HUFF_TEMPLATE> *>(x);
     ResultLexCount result;
 
 #if LEX_ORDERED
-    result.lex_ordered = true;
     std::tie(result.rank,
              result.count_smaller_symbols,
              result.count_greater_symbols) = wt.lex_count(start_index, end_index, symbol);
-#else
-    result.lex_ordered = false;
 #endif
     return result;
 }
@@ -161,11 +160,8 @@ ResultLexSmallerCount FN(wt_huff_lex_smaller_count, WT_HUFF_ID)(WtHuff *x, wt_hu
     const auto &wt = *reinterpret_cast<sdsl::wt_huff<WT_HUFF_TEMPLATE> *>(x);
     ResultLexSmallerCount result;
 #if LEX_ORDERED
-    result.lex_ordered = true;
     std::tie(result.rank,
              result.count_smaller_symbols) = wt.lex_smaller_count(index, symbol);
-#else
-    result.lex_ordered = false;
 #endif
     return result;
 }

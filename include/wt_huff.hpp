@@ -63,17 +63,17 @@ extern "C"
 
     struct ResultLexCount
     {
-        bool lex_ordered;
         wt_huff_size_type rank;
-        wt_huff_value_type count_smaller_symbols;
-        wt_huff_value_type count_greater_symbols;
+        wt_huff_size_type count_smaller_symbols;
+        wt_huff_size_type count_greater_symbols;
     };
-    ResultLexCount FN(wt_huff_lex_count, WT_HUFF_ID)(WtHuff *x, wt_huff_size_type start_index,
-                                                     wt_huff_size_type end_index, wt_huff_value_type symbol);
+    ResultLexCount FN(wt_huff_lex_count, WT_HUFF_ID)(WtHuff *x,
+                                                     wt_huff_size_type start_index,
+                                                     wt_huff_size_type end_index,
+                                                     wt_huff_value_type symbol);
 
     struct ResultLexSmallerCount
     {
-        bool lex_ordered;
         wt_huff_size_type rank;
         wt_huff_size_type count_smaller_symbols;
     };
