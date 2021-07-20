@@ -57,6 +57,10 @@ extern "C"
         wt_huff_size_type start_index,
         wt_huff_size_type end_index);
 
+    void FN(wt_huff_free_result_interval_symbols, WT_HUFF_ID)(wt_huff_value_type *cs,
+                                                              wt_huff_size_type *rank_c_i,
+                                                              wt_huff_size_type *rank_c_j);
+
     struct ResultLexCount
     {
         bool lex_ordered;
