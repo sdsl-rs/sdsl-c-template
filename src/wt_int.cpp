@@ -176,24 +176,23 @@ ResultRangeSearch2d FN(wt_int_range_search_2d, WT_INT_ID)(WtInt *x,
     std::tie(result.count_found_points,
              points) = wt.range_search_2d(lb, rb, vlb, vrb, report);
 
-    result.point_values = (wt_int_value_type *)malloc(points.size() * sizeof(wt_int_value_type));
     result.point_indexes = (wt_int_size_type *)malloc(points.size() * sizeof(wt_int_size_type));
+    result.point_values = (wt_int_value_type *)malloc(points.size() * sizeof(wt_int_value_type));
 
     for (int i = 0; i < points.size(); i++)
     {
         const auto &point = points[i];
-        std::tie(result.point_values[i],
-                 result.point_indexes[i]) = point;
+        std::tie(result.point_indexes[i], result.point_values[i]) = point;
     }
 
     return result;
 }
 
-void FN(wt_int_free_result_range_search_2d, WT_INT_ID)(wt_int_value_type *point_values,
-                                                       wt_int_size_type *point_indexes)
+void FN(wt_int_free_result_range_search_2d, WT_INT_ID)(wt_int_size_type *point_indexes,
+                                                       wt_int_value_type *point_values)
 {
-    free(point_values);
     free(point_indexes);
+    free(point_values);
 }
 
 wt_int_size_type FN(wt_int_alphabet_size, WT_INT_ID)(WtInt *x)

@@ -82,8 +82,8 @@ extern "C"
     struct ResultRangeSearch2d
     {
         wt_int_size_type count_found_points;
-        wt_int_value_type *point_values;
         wt_int_size_type *point_indexes;
+        wt_int_value_type *point_values;
     };
     ResultRangeSearch2d FN(wt_int_range_search_2d, WT_INT_ID)(WtInt *x,
                                                               wt_int_size_type lb,
