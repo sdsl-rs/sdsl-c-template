@@ -15,7 +15,7 @@ ExternalProject_Add(sdsl_lite
     INSTALL_COMMAND cmake -E echo "Skipping install step."
 )
 
-file(GLOB SOURCE_FILES "src/*.cpp")
+file(GLOB SOURCE_FILES "src/**/*.cpp")
 set(INCLUDE_DIRS
         ${PROJECT_SOURCE_DIR}/include
         ${SDSL_LITE_BUILD_DIR}/include

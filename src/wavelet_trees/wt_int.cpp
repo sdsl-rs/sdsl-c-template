@@ -1,4 +1,4 @@
-#include "wt_int.hpp"
+#include "wavelet_trees/wt_int.hpp"
 #include <iterator>
 #include <vector>
 

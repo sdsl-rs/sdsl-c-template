@@ -1,4 +1,4 @@
-#include "common.hpp"
+#include "../common.hpp"
 
 #include <sdsl/construct.hpp>
 #include <sdsl/config.hpp>

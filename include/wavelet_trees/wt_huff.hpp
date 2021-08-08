@@ -1,5 +1,5 @@
-#include "common.hpp"
-#include "byte_tree.hpp"
+#include "../common.hpp"
+#include "layouts/byte_tree.hpp"
 
 #include <sdsl/construct.hpp>
 #include <sdsl/config.hpp>

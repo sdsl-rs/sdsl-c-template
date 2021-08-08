@@ -1,7 +1,7 @@
 #include <iostream>
 #include "gtest/gtest.h"
 #include "bit_vector.hpp"
-#include "wt_huff.hpp"
+#include "wavelet_trees/wt_huff.hpp"
 
 TEST(WtHuff, FromBitVector)
 {

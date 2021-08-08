@@ -1,4 +1,4 @@
-#include "wt_huff.hpp"
+#include "wavelet_trees/wt_huff.hpp"
 #include <iterator>
 #include <vector>
 
