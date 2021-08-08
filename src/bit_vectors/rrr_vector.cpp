@@ -1,4 +1,4 @@
-#include "rrr_vector.hpp"
+#include "bit_vectors/rrr_vector.hpp"
 
 RrrVector *FN(rrr_vector_create, RRR_VECTOR_ID)(BitVector *v)
 {

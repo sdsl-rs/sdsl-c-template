@@ -1,4 +1,4 @@
-#include "bit_vector.hpp"
+#include "bit_vectors/bit_vector.hpp"
 
 BitVector *FN(bit_vector_create, BIT_VECTOR_ID)(size_type size, bit_vector_value_type default_value)
 {
