@@ -1,5 +1,5 @@
 #include <sdsl/rrr_vector.hpp>
-#include "bit_vector.hpp"
+#include "bit_vectors/bit_vector.hpp"
 #include "common.hpp"
 
 #ifndef SDSL_C_RRR_VECTOR_H

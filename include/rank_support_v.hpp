@@ -1,5 +1,5 @@
 #include "common.hpp"
-#include "bit_vector.hpp"
+#include "bit_vectors/bit_vector.hpp"
 #include <sdsl/rank_support_v.hpp>
 
 #ifndef SDSL_C_RANK_SUPPORT_V_HPP

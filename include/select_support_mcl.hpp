@@ -1,5 +1,5 @@
 #include "common.hpp"
-#include "bit_vector.hpp"
+#include "bit_vectors/bit_vector.hpp"
 #include <sdsl/select_support_mcl.hpp>
 
 #ifndef SDSL_C_SELECT_SUPPORT_MCL_HPP
