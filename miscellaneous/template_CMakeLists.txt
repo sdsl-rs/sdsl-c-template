@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.8)
 project(sdsl_c)
 set(CMAKE_CXX_STANDARD 14)
 
-set(SDSL_LITE_DIR ${PROJECT_SOURCE_DIR}/lib/sdsl-lite)
+set(SDSL_LITE_DIR ${PROJECT_SOURCE_DIR}/external/sdsl-lite)
 set(SDSL_LITE_BUILD_DIR ${SDSL_LITE_DIR}/cmake-build-debug)
 set(SDSL_LITE_LIB ${SDSL_LITE_BUILD_DIR}/lib/libsdsl.a)
 include(${CMAKE_ROOT}/Modules/ExternalProject.cmake)

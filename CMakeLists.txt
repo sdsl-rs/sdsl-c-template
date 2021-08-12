@@ -3,7 +3,7 @@ project(sdsl_c)
 set(CMAKE_CXX_STANDARD 14)
 
 # Build sdsl-lite
-set(SDSL_LITE_DIR ${PROJECT_SOURCE_DIR}/lib/sdsl-lite)
+set(SDSL_LITE_DIR ${PROJECT_SOURCE_DIR}/external/sdsl-lite)
 set(SDSL_LITE_BUILD_DIR ${SDSL_LITE_DIR}/cmake-build-debug)
 # TODO: Will probably need this: https://stackoverflow.com/questions/6351609/cmake-linking-to-library-downloaded-from-externalproject-add
 set(SDSL_LITE_LIB ${SDSL_LITE_BUILD_DIR}/lib/libsdsl.a)
@@ -15,7 +15,7 @@ ExternalProject_Add(sdsl_lite
     INSTALL_COMMAND cmake -E echo "Skipping install step."
 )
 
-file(GLOB SOURCE_FILES "src/**/*.cpp")
+file(GLOB_RECURSE SOURCE_FILES "src/*.cpp")
 set(INCLUDE_DIRS
         ${PROJECT_SOURCE_DIR}/include
         ${SDSL_LITE_BUILD_DIR}/include
