@@ -1,3 +1,5 @@
+if [ -d build/release_archive ]; then rm -Rf build/release_archive; fi
+
 mkdir -p build/release_archive
 (cd build/release_archive && mkdir sdsl-c)
 
