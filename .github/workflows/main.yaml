@@ -34,10 +34,11 @@ jobs:
           echo ::set-output name=NAME::sdsl-c-template
           echo ::set-output name=VERSION::${GITHUB_REF#refs/tags/}
         
-      - name: Archive release assets
-        id: archive_assets
+      - name: Build release archive
+        id: build_release_archive
         run: |
-          7z a -tzip ${{ github.workspace }}/${{ steps.meta.outputs.NAME }}-${{ steps.meta.outputs.VERSION }}.zip ${{ github.workspace }}
+          ls ${{ github.workspace }}
+          (cd ${{ github.workspace }} && bash ./build_release.sh ${{ steps.meta.outputs.NAME }} ${{ steps.meta.outputs.VERSION }})
 
       - name: Upload release archive
         id: upload_archive
@@ -46,6 +47,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ github.workspace }}/${{ steps.meta.outputs.NAME }}-${{ steps.meta.outputs.VERSION }}.zip
+          asset_path: ${{ github.workspace }}/build/release_archive/${{ steps.meta.outputs.NAME }}-${{ steps.meta.outputs.VERSION }}.zip
           asset_name: ${{ steps.meta.outputs.NAME }}-${{ steps.meta.outputs.VERSION }}.zip
           asset_content_type: application/octet-stream
