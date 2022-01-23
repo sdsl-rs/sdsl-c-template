@@ -37,7 +37,6 @@ jobs:
       - name: Build release archive
         id: build_release_archive
         run: |
-          ls ${{ github.workspace }}
           (cd ${{ github.workspace }} && bash ./build_release.sh ${{ steps.meta.outputs.NAME }} ${{ steps.meta.outputs.VERSION }})
 
       - name: Upload release archive
